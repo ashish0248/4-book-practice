@@ -12,6 +12,12 @@ class BookersController < ApplicationController
   end
 
   def edit
+  	@booker = Booker.find(params[:id])
+  end
+  def update
+  	booker = Booker.find(params[:id])
+  	booker.update(booker_params)
+  	redirect_to booker_path(booker.id)
   end
 
   def create
@@ -20,7 +26,11 @@ class BookersController < ApplicationController
   	redirect_to booker_path(booker.id)
   end
 
-
+  def destroy
+  	booker = Booker.find(prams[:id])
+  	booker.destroy
+  	redirect_to bookers_path
+  end
 
   private
   def booker_params

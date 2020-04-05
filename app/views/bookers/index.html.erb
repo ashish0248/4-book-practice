@@ -1,17 +1,23 @@
 <body>
 	<h1>Books</h1>
 	<table>
-		<caption>table title and/or explanatory text</caption>
-		<thead>
 			<tr>
-				<th>header</th>
+				<th>Title</th>
+				<th>body</th>
+				<th></th>
+				<th></th>
+				<th></th>
 			</tr>
-		</thead>
-		<tbody>
 			<tr>
-				<td>data</td>
+				<% @bookers.each do |booker| %>
+					<th><%= booker.title %></th>
+					<th><%= booker.body %></th>
+					<th> <%= link_to 'Show',booker_path(booker.id) %></th>
+					<th><%= link_to 'Edit', edit_booker_path(@bookers.ids) %></th>
+					<th><%= link_to "Destroy", bookers_path(@bookers.ids), method: :delete, "data-confirm" => "Are you sure?" %></th>
 			</tr>
-		</tbody>
+
+			<% end %>
 	</table>
 
 	<%= form_for(@booker, url: '/bookers') do |f| %>
