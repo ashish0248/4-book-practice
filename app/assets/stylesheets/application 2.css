@@ -14,24 +14,16 @@
  *= require_self
  */
 
-body{
+.top {
 	width: auto;
+	height: 171px;
 	margin: 33px;
-	font-size: 13px;
-	line-height: 18px;
-	color: #333;
 }
-h1 {
+.main-title{
 	height: 18px;
+	margin: 17px;
 }
-p {
+.main-text{
 	font-size: 13px;
 	margin: 33px;
-	line-height: 18px;
 }
-a {
-	color: #666;
-	font-size: 13px;
-
-}
-
