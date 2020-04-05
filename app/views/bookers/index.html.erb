@@ -1,6 +1,7 @@
 <body>
 	<h1>Books</h1>
 	<table>
+	 	<thead>
 			<tr>
 				<th>Title</th>
 				<th>body</th>
@@ -8,6 +9,8 @@
 				<th></th>
 				<th></th>
 			</tr>
+		 </thead>
+		 <tbody>
 			<tr>
 				<% @bookers.each do |booker| %>
 					<th><%= booker.title %></th>
@@ -15,20 +18,23 @@
 					<th> <%= link_to 'Show',booker_path(booker.id) %></th>
 					<th><%= link_to 'Edit', edit_booker_path(booker.id) %></th>
 					<th><%= link_to "Destroy", booker_path(booker.id), method: :delete, "data-confirm" => "Are you sure?" %></th>
+				
 			</tr>
-
 			<% end %>
+		 </tbody>
 	</table>
 
-	<%= form_for(@booker, url: '/bookers') do |f| %>
-		<h1>New book</h1>
-		<h4>Title</h4>
-	    <%= f.text_field :title %>
-
-		<h4>Body</h4>	
-		<%= f.text_area :body %><br>
-	
-		<%= f.submit 'Crete Book' %>
+	<h2>New book</h2>
+	<%= form_for(@booker, url:"/bookers") do |f| %>
+		<div class="field">
+			<label for = "book_title">Title</label>
+			<%= f.text_field :title, id: "book_title" %>
+		</div>
+		<div class="field">
+			<label for = "book_body">Body</label>
+			<%= f.text_field :body, id: "book_body" %>
+		</div>
+			<%= f.submit 'Create Book' %> 
 	<% end %>
 
 </body>
