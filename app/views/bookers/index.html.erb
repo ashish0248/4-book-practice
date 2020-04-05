@@ -13,8 +13,8 @@
 					<th><%= booker.title %></th>
 					<th><%= booker.body %></th>
 					<th> <%= link_to 'Show',booker_path(booker.id) %></th>
-					<th><%= link_to 'Edit', edit_booker_path(@bookers.ids) %></th>
-					<th><%= link_to "Destroy", bookers_path(@bookers.ids), method: :delete, "data-confirm" => "Are you sure?" %></th>
+					<th><%= link_to 'Edit', edit_booker_path(booker.id) %></th>
+					<th><%= link_to "Destroy", booker_path(booker.id), method: :delete, "data-confirm" => "Are you sure?" %></th>
 			</tr>
 
 			<% end %>

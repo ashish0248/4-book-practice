@@ -27,7 +27,7 @@ class BookersController < ApplicationController
   end
 
   def destroy
-  	booker = Booker.find(prams[:id])
+  	booker = Booker.find(params[:id])
   	booker.destroy
   	redirect_to bookers_path
   end
