@@ -1,2 +1,28 @@
-<h1>Bookers#index</h1>
-<p>Find me in app/views/bookers/index.html.erb</p>
+<body>
+	<h1>Books</h1>
+	<table>
+		<caption>table title and/or explanatory text</caption>
+		<thead>
+			<tr>
+				<th>header</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>data</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<%= form_for(@booker, url: '/bookers') do |f| %>
+		<h1>New book</h1>
+		<h4>Title</h4>
+	    <%= f.text_field :title %>
+
+		<h4>Body</h4>	
+		<%= f.text_area :body %><br>
+	
+		<%= f.submit 'Crete Book' %>
+	<% end %>
+
+</body>
