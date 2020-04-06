@@ -22,10 +22,16 @@ class BookersController < ApplicationController
   end
 
   def create
-  	booker = Booker.new(booker_params)
-  	booker.save
-  	flash[:success] = "Book was successfully created."
-  	redirect_to booker_path(booker.id)
+  	@booker = Booker.new(booker_params)
+    @bookers = Booker.all
+    if @booker.save
+      flash[:success] = "Book was successfully created."
+      redirect_to booker_path(@booker.id)
+    else
+      render 'index'
+
+    end
+
   end
 
   def destroy

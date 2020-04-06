@@ -1,15 +1,16 @@
 <h1>Editing Book</h1>
 <%= form_for(@booker, url:"/bookers/#{@booker.id}") do |f| %>
 		<div class="field">
-			<label for = "book_title">Title</label>
+			<label for = "book_title">Title</label><br>
 			<%= f.text_field :title, id: "book_title" %>
 		</div>
 		<div class="field">
-			<label for = "book_body">Body</label>
+			<label for = "book_body">Body</label><br>
 			<%= f.text_field :body, id: "book_body" %>
 		</div>
-			<%= f.submit 'Update Book' %> 
+			<%= f.submit 'Update Book' %> <br><br>
 
     <%= link_to 'Show', booker_path(@booker.id) %> 
+     | 
 	<%= link_to 'Back', bookers_path %> 
 <% end %>

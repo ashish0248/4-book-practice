@@ -1,7 +1,7 @@
-<% flash.each do |message_type, message| %>
-　	<div class="alert alert-<%= message_type %>"><%= message %></div>
-<% end %>
 <body>
+	<% flash.each do |message_type, message| %>
+　	<p class="alart"><%= message %></p>
+	<% end %>
 	<h1>Books</h1>
 	<table>
 	 	<thead>
@@ -28,13 +28,16 @@
 	</table>
 
 	<h2>New book</h2>
+	<% if @booker.errors.any? %>
+	  <p>エラーでーす。</p>
+	<% end %>
 	<%= form_for(@booker, url:"/bookers") do |f| %>
 		<div class="field">
-			<label for = "book_title">Title</label>
+			<label for = "book_title">Title</label><br>
 			<%= f.text_field :title, id: "book_title" %>
 		</div>
 		<div class="field">
-			<label for = "book_body">Body</label>
+			<label for = "book_body">Body</label><br>
 			<%= f.text_field :body, id: "book_body" %>
 		</div>
 			<%= f.submit 'Create Book' %> 

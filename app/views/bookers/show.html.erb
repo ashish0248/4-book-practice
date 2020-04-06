@@ -1,17 +1,18 @@
 <% flash.each do |message_type, message| %>
-　	<div class="alert alert-<%= message_type %>"><%= message %></div>
+　	<div class="alart"><%= message %></div>
 <% end %>
 <body>
 	<p>
-		Title: 
+		<strong>Title: </strong>
 		<%= @booker.title %>
 	</p>
 	<p>
-		Body:
+		<strong>Body: </strong>
 		<%= @booker.body %>
 	</p>
 
 	<%= link_to 'Edit', edit_booker_path(@booker.id) %>
+	 | 
 	<%= link_to 'Back', bookers_path %>
 
 </body>
