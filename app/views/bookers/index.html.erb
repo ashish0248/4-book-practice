@@ -28,16 +28,24 @@
 	</table>
 
 	<h2>New book</h2>
-	<% if @booker.errors.any? %>
-	  <p>エラーでーす。</p>
-	<% end %>
 	<%= form_for(@booker, url:"/bookers") do |f| %>
+			<% if @booker.errors.any? %>
+				<div class="alart-message">
+					 <h3 class="alart-body"><%= pluralize(@booker.errors.count, "error") %> prohibited this book from being saved:</h3>
+    			<ul>
+     				 <% @booker.errors.full_messages.each do |message| %>
+       					 <li><%= message %></li>
+     				 <% end %>
+    			</ul>
+		  <% end %>
+      		</div>
+
 		<div class="field">
-			<label for = "book_title">Title</label><br>
+			<label for = "book_title">Title</label>
 			<%= f.text_field :title, id: "book_title" %>
 		</div>
 		<div class="field">
-			<label for = "book_body">Body</label><br>
+			<label for = "book_body">Body</label>
 			<%= f.text_field :body, id: "book_body" %>
 		</div>
 			<%= f.submit 'Create Book' %> 
